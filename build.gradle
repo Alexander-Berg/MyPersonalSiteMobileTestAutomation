@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.8.1"
+        classpath "ru.d10xa:gradle-allure-plugin:0.5.5"
+    }
+
+}
+plugins {
+        id 'java'
+        id 'io.qameta.allure' version '2.8.1'
+        id 'io.freefair.lombok' version '5.2.1'
+    }
+
+    group 'org.example.berg'
+    version '1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+
+allure {
+    autoconfigure = true
+    version = '2.2.1'
+    aspectjweaver = true
+    allureJavaVersion = 11
+}
+
+    dependencies {
+
+        implementation 'io.appium:java-client:8.1.0'
+        implementation 'org.jetbrains:annotations:20.1.0'
+        testImplementation 'org.testng:testng:7.6.0'
+        implementation 'org.seleniumhq.selenium:selenium-java:4.2.1'
+        implementation 'io.github.bonigarcia:webdrivermanager:5.2.0'
+        implementation 'io.qameta.allure:allure-testng:2.18.1'
+    }
+
+    test {
+        useTestNG()
+        systemProperty 'selenium.headless', System.getProperty('selenium.headless')
+        ignoreFailures = true
+    }
+configurations {
+    testCompile
+}
+
+tasks.withType(JavaCompile) {
+    options.failOnError(false)
+}
+
