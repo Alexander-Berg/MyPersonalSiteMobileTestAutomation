@@ -1,4 +1,5 @@
 # MyPersonalSiteMobileTestAutomation
+Deployed on Jenkins [![Build Status](http://localhost:8081/buildStatus/icon?job=AppiumMobileSiteAutomation)](http://localhost:8081/job/AppiumMobileSiteAutomation/)
 My Personal site UI tests Automation on Android
 Java + Appium + Android Sdk + Allure + Selenium + TestNG + intellIJ + WebDriver
 ![](allure-report/1.png)
